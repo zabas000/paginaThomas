@@ -1,11 +1,361 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<div class="shadow">
+<main>
+  <section>
+    <div class="white-bkg"></div>
+    <!-- <header>
+      <img src="./tinder-logo.webp" alt="Tinder Logo" />
+    </header> -->
+
+    <div class="cards">
+
+      <article>
+        <img src="./photos/oppo.webp" alt="Leila, redhead, 25 years old" />
+        <div class="img-overlay"></div>
+        <h2>Oppo A57 <span>De segunda</span></h2>
+        <div class="texto-hover">Un celular elegante y funcional con excelente rendimiento para tus tareas diarias.Pantalla nítida, buena cámara y batería duradera. Perfecto si buscas calidad y economía.</div>
+      </article>
+
+	  <article>
+        <img src="./photos/Redmi8.webp" alt="Leila, redhead, 25 years old" />
+        <div class="img-overlay"></div>
+        <h2>Redmi 8 Pro<span>De segunda</span></h2>
+        <div class="texto-hover">Potente y confiable, ideal para juegos, redes sociales y fotos de alta calidad. Con procesador robusto y almacenamiento amplio, es una opción ideal para quienes exigen más sin gastar de más.</div>
+      </article>
+
+	  <article>
+        <img src="./photos/a21s.webp" alt="Leila, redhead, 25 years old" />
+        <div class="img-overlay"></div>
+        <h2>Samsung A21s<span>De segunda</span></h2>
+        <div class="texto-hover">Diseño moderno, cámara cuádruple y batería de larga duración. Disfruta de una experiencia fluida con la confianza de la marca Samsung a un precio accesible.</div>
+      </article>
+
+	  <article>
+        <img src="./photos/air01.webp" alt="Álex, brown hair man, 25 years old" />
+        <div class="img-overlay"></div>
+        <h2>AirPods Pro <span>1.1</span></h2>
+        <div class="texto-hover">Sumérgete en tu música con cancelación activa de ruido, sonido envolvente y diseño cómodo. Compatibles con dispositivos Apple y Android. ¡Disfruta de una experiencia auditiva premium a un precio especial!</div>
+      </article>
+
+      <span>
+        No hay más productos disponibles...<br />
+        Vuelve a intentarlo más tarde
+      </span>
+    </div>
+
+    <footer>
+      <button class="is-undo" aria-label="undo">comprar</button>
+      <button class="is-remove is-big" aria-label="remove">pagos</button>
+      <button class="is-star" aria-label="star">envios</button>
+    </footer>
+  </section>
+</main>
+</div>
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: grid;
+    place-content:  center;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    background: #d6d4d4;
+  }
+  .white-bkg {
+    position: absolute;
+    background: #ffffff;
+    inset: 0;
+    z-index: -10;
+  }
+  .shadow{
+	height: 100vh;
+
+  }
+  main {
+    background-size: contain;
+    width: 60vh;
+    height: 100vh;
+    display: flex;
+    position: relative;
+  }
+
+  section {
+    width: 100%;
+    border-radius: 22px;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 6px;
+    margin: 10px 10px ;
+  }
+
+  header {
+    display: flex;
+    justify-content: start;
+    padding-left: 1rem;
+
+    & img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    padding: 0 24px;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+      background-size: 175px;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      border: 0;
+      cursor: pointer;
+      transition: scale .3s ease;
+
+     
+    }
+  }
+
+  .cards {
+    position: relative;
+    width: 98%;
+    height: 100%;
+    margin: 0 auto;
+
+    &>span {
+      display: grid;
+      place-content: center;
+      color: #777;
+      font-size: 14px;
+      text-align: center;
+      height: 100%;
+      z-index: -1;
+    }
+
+    & article {
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+      cursor: grab;
+      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+      &.go-left {
+        transform: translateX(-150%) rotate(-30deg) !important;
+      }
+
+      &.go-right {
+        transform: translateX(150%) rotate(30deg) !important;
+      }
+
+      &.go-left,
+      &.go-right {
+        transition: transform .3s ease, rotate .3s ease;
+      }
+
+      &.reset {
+        transition: transform .3s ease;
+        transform: translateX(0) !important;
+      }
+
+
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      & h2 {
+        color: white;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: last baseline;
+        height: 100%;
+        width: 100%;
+        padding: 16px;
+        z-index: 3;
+        background: linear-gradient(to top,
+            #00000088 20%,
+            transparent 40%);
+      }
+
+      & span {
+        margin-left: 6px;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .cards article {
+  position: absolute;
+  overflow: hidden;
+}
+
+.cards article .img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+  pointer-events: none;
+}
+.texto-hover{
+	padding: 20px;
+	font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; ;
+}
+.cards article .texto-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.cards article:hover .img-overlay,
+.cards article:hover .texto-hover {
+  opacity: 1;
+}
+</style>
+
+<script>
+  const DECISION_THRESHOLD = 75
+
+  let isAnimating = false
+  let pullDeltaX = 0 // distance from the card being dragged
+
+  function startDrag(event) {
+    if (isAnimating) return
+
+    // get the first article element
+    const actualCard = event.target.closest('article')
+    if (!actualCard) return
+
+    // get initial position of mouse or finger
+    const startX = event.pageX ?? event.touches[0].pageX
+
+    // listen the mouse and touch movements
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onEnd)
+
+    document.addEventListener('touchmove', onMove, { passive: true })
+    document.addEventListener('touchend', onEnd, { passive: true })
+
+    function onMove(event) {
+      // current position of mouse or finger
+      const currentX = event.pageX ?? event.touches[0].pageX
+
+      // the distance between the initial and current position
+      pullDeltaX = currentX - startX
+
+      // there is no distance traveled in X axis
+      if (pullDeltaX === 0) return
+
+      // change the flag to indicate we are animating
+      isAnimating = true
+
+      // calculate the rotation of the card using the distance
+      const deg = pullDeltaX / 14
+
+      // apply the transformation to the card
+      actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
+
+      // change the cursor to grabbing
+      actualCard.style.cursor = 'grabbing'
+
+      // change opacity of the choice info
+      const opacity = Math.abs(pullDeltaX) / 100
+      const isRight = pullDeltaX > 0
+
+      const choiceEl = isRight
+        ? actualCard.querySelector('.choice.like')
+        : actualCard.querySelector('.choice.nope')
+
+      choiceEl.style.opacity = opacity
+    }
+
+    function onEnd(event) {
+      // remove the event listeners
+      document.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseup', onEnd)
+
+      document.removeEventListener('touchmove', onMove)
+      document.removeEventListener('touchend', onEnd)
+
+      // saber si el usuario tomo una decisión
+      const decisionMade = Math.abs(pullDeltaX) >= DECISION_THRESHOLD
+
+      if (decisionMade) {
+        const goRight = pullDeltaX >= 0
+
+        // add class according to the decision
+        actualCard.classList.add(goRight ? 'go-right' : 'go-left')
+        actualCard.addEventListener('transitionend', () => {
+          actualCard.remove()
+        })
+      } else {
+        actualCard.classList.add('reset')
+        actualCard.classList.remove('go-right', 'go-left')
+
+        actualCard.querySelectorAll('.choice').forEach(choice => {
+          choice.style.opacity = 0
+        })
+      }
+
+      // reset the variables
+      actualCard.addEventListener('transitionend', () => {
+        actualCard.removeAttribute('style')
+        actualCard.classList.remove('reset')
+
+        pullDeltaX = 0
+        isAnimating = false
+      })
+
+      // reset the choice info opacity
+      actualCard
+        .querySelectorAll(".choice")
+        .forEach((el) => (el.style.opacity = 0));
+    }
+  }
+
+  document.addEventListener('mousedown', startDrag)
+  document.addEventListener('touchstart', startDrag, { passive: true })
+</script>
+	
 </Layout>
