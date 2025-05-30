@@ -8,9 +8,7 @@ import Layout from '../layouts/Layout.astro';
 <main>
   <section>
     <div class="white-bkg"></div>
-    <!-- <header>
-      <img src="./tinder-logo.webp" alt="Tinder Logo" />
-    </header> -->
+
 
     <div class="cards">
 
@@ -18,28 +16,37 @@ import Layout from '../layouts/Layout.astro';
         <img src="./photos/oppo.webp" alt="Leila, redhead, 25 years old" />
         <div class="img-overlay"></div>
         <h2>Oppo A57 <span>De segunda</span></h2>
-        <div class="texto-hover">Un celular elegante y funcional con excelente rendimiento para tus tareas diarias.Pantalla nítida, buena cámara y batería duradera. Perfecto si buscas calidad y economía.</div>
+        <div class="texto-hover">
+          Un celular elegante y funcional con excelente rendimiento para tus tareas diarias. Pantalla nítida, buena cámara y batería duradera. Perfecto si buscas calidad y economía.
+        </div>
+        <a href="https://tupagina.com/comprar/oppo-a57" class="comprar-btn" target="_blank" rel="noopener">$270mil</a>
       </article>
-
-	  <article>
+      <article>
         <img src="./photos/Redmi8.webp" alt="Leila, redhead, 25 years old" />
         <div class="img-overlay"></div>
         <h2>Redmi 8 Pro<span>De segunda</span></h2>
-        <div class="texto-hover">Potente y confiable, ideal para juegos, redes sociales y fotos de alta calidad. Con procesador robusto y almacenamiento amplio, es una opción ideal para quienes exigen más sin gastar de más.</div>
+        <div class="texto-hover">
+          Potente y confiable, ideal para juegos, redes sociales y fotos de alta calidad. Con procesador robusto y almacenamiento amplio, es una opción ideal para quienes exigen más sin gastar de más.
+        </div>
+        <a href="https://tupagina.com/comprar/redmi-8-pro" class="comprar-btn" target="_blank" rel="noopener">$400mil</a>
       </article>
-
-	  <article>
+      <article>
         <img src="./photos/a21s.webp" alt="Leila, redhead, 25 years old" />
         <div class="img-overlay"></div>
         <h2>Samsung A21s<span>De segunda</span></h2>
-        <div class="texto-hover">Diseño moderno, cámara cuádruple y batería de larga duración. Disfruta de una experiencia fluida con la confianza de la marca Samsung a un precio accesible.</div>
+        <div class="texto-hover">
+          Diseño moderno, cámara cuádruple y batería de larga duración. Disfruta de una experiencia fluida con la confianza de la marca Samsung a un precio accesible.
+        </div>
+        <a href="https://tupagina.com/comprar/samsung-a21s" class="comprar-btn" target="_blank" rel="noopener">$280mil</a>
       </article>
-
-	  <article>
+      <article>
         <img src="./photos/air01.webp" alt="Álex, brown hair man, 25 years old" />
         <div class="img-overlay"></div>
         <h2>AirPods Pro <span>1.1</span></h2>
-        <div class="texto-hover">Sumérgete en tu música con cancelación activa de ruido, sonido envolvente y diseño cómodo. Compatibles con dispositivos Apple y Android. ¡Disfruta de una experiencia auditiva premium a un precio especial!</div>
+        <div class="texto-hover">
+          Sumérgete en tu música con cancelación activa de ruido, sonido envolvente y diseño cómodo. Compatibles con dispositivos Apple y Android. ¡Disfruta de una experiencia auditiva premium a un precio especial!
+        </div>
+        <a href="" class="comprar-btn" target="_blank" rel="noopener">$130mil</a>
       </article>
 
       <span>
@@ -49,10 +56,8 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <footer>
-      <button class="is-undo" aria-label="undo">comprar</button>
-      <button class="is-remove is-big" aria-label="remove">pagos</button>
-      <button class="is-star" aria-label="star">envios</button>
-    </footer>
+  <a class="buton" href="./contacto" >Contactar ahora </a>
+</footer>
   </section>
 </main>
 </div>
@@ -64,6 +69,9 @@ import Layout from '../layouts/Layout.astro';
     margin: 0;
     padding: 0;
   }
+
+
+
 
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -116,24 +124,29 @@ import Layout from '../layouts/Layout.astro';
   }
 
   footer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    padding: 0 24px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 27px; /* Aumenta la separación entre botones */
+    padding: 0 24px;
+    width: 100%;
+  }
 
-    & button {
-      background-size: 175px;
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      border: 0;
-      cursor: pointer;
-      transition: scale .3s ease;
+  .buton{
+    background-color: #777;
+    padding: 10px 24px ;
+    border-radius: 10px;
+    color: #fff;
+    border: none ;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: medium;
+  }
 
-     
-    }
+  .buton:hover {
+    background-color: #181a18;
+    transform: translateY(-3px) scale(1.07);
   }
 
   .cards {
@@ -252,6 +265,31 @@ import Layout from '../layouts/Layout.astro';
 .cards article:hover .texto-hover {
   opacity: 1;
 }
+
+.comprar-btn {
+  position: absolute;
+  bottom: 100px; /* <-- antes estaba en 30px */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1ca733;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0;
+  z-index: 4;
+  transition: opacity 0.3s, background 0.2s;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.cards article:hover .comprar-btn {
+  opacity: 1;
+}
 </style>
 
 <script>
@@ -260,15 +298,18 @@ import Layout from '../layouts/Layout.astro';
   let isAnimating = false
   let pullDeltaX = 0 // distance from the card being dragged
 
-  function startDrag(event) {
+  function startDrag(event: MouseEvent | TouchEvent) {
     if (isAnimating) return
 
     // get the first article element
+    if (!event.target) return;
     const actualCard = event.target.closest('article')
     if (!actualCard) return
 
     // get initial position of mouse or finger
-    const startX = event.pageX ?? event.touches[0].pageX
+    const startX = (event instanceof TouchEvent)
+      ? event.touches[0].pageX
+      : event.pageX;
 
     // listen the mouse and touch movements
     document.addEventListener('mousemove', onMove)
@@ -277,9 +318,11 @@ import Layout from '../layouts/Layout.astro';
     document.addEventListener('touchmove', onMove, { passive: true })
     document.addEventListener('touchend', onEnd, { passive: true })
 
-    function onMove(event) {
+    function onMove(event: MouseEvent | TouchEvent) {
       // current position of mouse or finger
-      const currentX = event.pageX ?? event.touches[0].pageX
+      const currentX = (event instanceof TouchEvent)
+        ? event.touches[0].pageX
+        : event.pageX;
 
       // the distance between the initial and current position
       pullDeltaX = currentX - startX
@@ -310,7 +353,7 @@ import Layout from '../layouts/Layout.astro';
       choiceEl.style.opacity = opacity
     }
 
-    function onEnd(event) {
+    function onEnd(event: MouseEvent | TouchEvent) {
       // remove the event listeners
       document.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseup', onEnd)
@@ -333,8 +376,8 @@ import Layout from '../layouts/Layout.astro';
         actualCard.classList.add('reset')
         actualCard.classList.remove('go-right', 'go-left')
 
-        actualCard.querySelectorAll('.choice').forEach(choice => {
-          choice.style.opacity = 0
+        actualCard.querySelectorAll('.choice').forEach((choice: HTMLElement) => {
+          choice.style.opacity = "0"
         })
       }
 
@@ -350,7 +393,7 @@ import Layout from '../layouts/Layout.astro';
       // reset the choice info opacity
       actualCard
         .querySelectorAll(".choice")
-        .forEach((el) => (el.style.opacity = 0));
+        .forEach((el: HTMLElement) => (el.style.opacity = "0"));
     }
   }
 
